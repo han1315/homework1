@@ -1,0 +1,84 @@
+\documentclass{ctexart}
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+
+\title{Homework1:L'H\^opital's rule's describe and proof}
+
+\author{Ang Chen Han \\ Information and Computational Science 3200300133}
+
+\begin{document}
+
+\maketitle
+
+
+L'H\^opital's rule is a theorem which provides a technique to evalute limits of indeterminate forms.Application of the rule often converts an indeterminate form to an expression that can be easily evaluted by substitution.
+
+\section{Question Describe}
+Question describe as below:
+\subsection{If function $f(x)$ and $g(x)$ in the area of $U(a,\delta)$ are derivable and satisfy :}
+\begin{align}
+\lim_{x \rightarrow a}f(x)&=0\\
+\lim_{x \rightarrow a}g(x)&=0\\
+\lim_{x \rightarrow a}\frac{f'(x)}{g'(x)}&=l \\
+\text{then exist : }\lim_{x \rightarrow a}\frac{f(x)}{g(x)}&=l
+\end{align}
+
+\subsection{If function $f(x)$ and $g(x)$ in the area of $U(\infty,\delta)$ are derivable and satisfy :}
+\begin{align}
+\lim_{x \rightarrow \infty}f(x)&=0\label{eq::first}\\
+\lim_{x \rightarrow \infty}g(x)&=0\label{eq::second}\\
+\lim_{x \rightarrow \infty}\frac{f'(x)}{g'(x)}&=l \\
+\text{then exist : }\lim_{x \rightarrow \infty}\frac{f(x)}{g(x)}&=l
+\end{align}
+
+\subsection{If function $f(x)$ and $g(x)$ in the area of $U(a,\delta)$ are derivable and satisfy :}
+\begin{align}
+\lim_{x \rightarrow a}g(x)&=\infty\\
+\lim_{x \rightarrow a}\frac{f'(x)}{g'(x)}&=l \\
+\text{then exist : }\lim_{x \rightarrow a}\frac{f(x)}{g(x)}&=l
+\end{align}
+
+\subsection{If function $f(x)$ and $g(x)$ in the area of $U(\infty,\delta)$ are derivable and satisfy :}
+\begin{align}
+\lim_{x \rightarrow \infty}g(x)&=\infty\label{eq::third}\\
+\lim_{x \rightarrow \infty}\frac{f'(x)}{g'(x)}&=l \\
+\text{then exist : }\lim_{x \rightarrow \infty}\frac{f(x)}{g(x)}&=l
+\end{align}
+
+
+\section{Proof the Rule}
+Just proof the situation when~$\lim_{x \rightarrow a}\frac{f'(x)}{g'(x)}=l<\infty$ ,when $l=\infty$ ,both are same.
+
+\subsection{First proof (\ref{eq::first}) and (\ref{eq::second})}
+\begin{align}
+&\text{Let }\lim_{x \rightarrow \infty}f(x)=\lim_{x \rightarrow \infty}g(x)=0\notag \\
+&\forall\epsilon>0 ,\exists\delta>0 ,\text{when }x\in(a,a+\delta)\notag \\
+&l-\epsilon<\frac{f'(x)}{g'(x)}<l+\epsilon ,\\
+&\text{for }(x,x_0)\subset(a,a+\delta) ,\text{from Cauchy's mean value theorem ,got}\notag\\
+&\xi\in(x,x_0),l-\epsilon<\frac{f(x)-f(x_0)}{g(x)-g(x_0)}=\frac{f'(\xi)}{g'(\xi)}<l+\epsilon\\
+&\text{let }x_0 \rightarrow a ,1-\frac{g(x_0)}{g(x)} \rightarrow 1\\
+&\text{so that ,}\limsup_{x \rightarrow a^+}\frac{f(x)}{g(x)}\le l+\epsilon \\
+&\text{from arbitrariness of }\epsilon ,\limsup_{x \rightarrow a^+}\frac{f(x)}{g(x)} \le l \label{eq::left}\\
+&\text{similarly ,}\liminf_{x \rightarrow a^+}\frac{f(x)}{g(x)} \ge l \label{eq::right}\\
+&\text{from (\ref{eq::left}) and (\ref{eq::right}) ,}\lim_{x \rightarrow a^+}\frac{f(x)}{g(x)}=l 
+\end{align}
+
+\subsection{Now proof (\ref{eq::third})}
+\begin{align}
+\frac{f(x)}{g(x)}&=\frac{f(x)-f(x_0)}{g(x)}+\frac{f(x_0)}{g(x)}\notag \\
+&=\frac{g(x)-g(x_0)}{g(x)}*\frac{f(x)-f(x_0)}{g(x)-g(x_0)}+\frac{f(x_0)}{g(x)}\notag\\
+&=[1-\frac{g(x_0)}{g(x)}]\frac{f(x)-f(x_0)}{g(x)-g(x_0)}+\frac{f(x_0)}{g(x)}\\
+\arrowvert\frac{f(x)}{g(x)}-l\arrowvert&=\arrowvert[1-\frac{g(x_0)}{g(x)}]\frac{f(x)-f(x_0)}{g(x)-g(x_0)}+\frac{f(x_0)}{g(x)}-l\arrowvert \notag \\
+&\le\arrowvert1-\frac{g(x_0)}{g(x)}\arrowvert*\arrowvert\frac{f(x)-f(x_0)}{g(x)-g(x_0)}-l\arrowvert+\arrowvert\frac{f(x_0)-lg(x_0)}{g(x)}\arrowvert\label{eq::one}
+\end{align}
+
+\begin{align}
+&\text{then ,}\arrowvert\frac{f(x)-f(x_0)}{g(x)-g(x_0)}-l\arrowvert=\arrowvert\frac{f'(\xi)}{g'(\xi)}-l\arrowvert<\epsilon \notag\\
+&\text{another ,}\lim_{x \rightarrow a^+}g(x)=\infty ,\text{when x near a}\notag\\
+&\arrowvert1-\frac{g(x_0)}{g(x)}\arrowvert<C,\forall C \in R\label{eq::two}\\
+&\arrowvert\frac{f(x)-f(x_0)}{g(x)-g(x_0)}-l\arrowvert\rightarrow0\label{eq::three}\\
+&\arrowvert\frac{f(x_0)-lg(x_0)}{g(x)}\arrowvert\rightarrow0\label{eq::four}\\
+&\text{from (\ref{eq::one})(\ref{eq::two})(\ref{eq::three})(\ref{eq::four}) ,}\lim_{x \rightarrow a^+}\frac{f(x)}{g(x)}=l=\lim_{x \rightarrow a^+}\frac{f'(x)}{g'(x)}
+\end{align}
+\end{document}
